@@ -453,6 +453,14 @@ mAdapter = new FirebaseRecyclerAdapter<ChatMessage, ChatMessageViewHolder>(ChatM
         chatMessageViewHolder.nameText.setText(chatMessage.getName());
         chatMessageViewHolder.messageText.setText(chatMessage.getMessage());
     }
+    
+    @Override
+    public ChatMessageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(mModelLayout, parent, false);
+        return new ChatMessageViewHolder(viewGroup);
+    
+    }
 };
 recycler.setAdapter(mAdapter);
 ```
